@@ -1,0 +1,457 @@
+*{
+    margin:0;padding:0;
+    box-sizing:border-box
+}
+body{
+    font-family:Arial,sans-serif;
+    background:#0f172a;
+    color:#fff;height:100vh
+}
+.container{
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    grid-template-rows: 70px 1fr 60px;
+    height: 100vh;
+    grid-template-areas:'header header' 'sidebar content' 'footer footer'
+}
+.header{
+    grid-area:header;
+    background:#111827;
+    border-bottom:1px solid #2b3548;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 20px
+}
+.sidebar{
+    grid-area:sidebar;
+    background:#111827;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    gap:20px
+}
+.connection-card{
+    background:#1f2937;
+    border-radius:10px;
+    padding:15px
+}
+.connection-item{
+    display:flex;
+    justify-content:space-between;
+    margin:8px 0;
+    font-size:14px
+}
+.menu{
+    display:flex;
+    flex-direction:column;
+    gap:10px
+}
+.menu-item{
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#1f2937;
+    color:#fff;
+    text-align:left;
+    cursor:pointer
+}
+.menu-item.active,.menu-item:hover{
+    background:#2563eb
+}
+.connection-button{
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#999999;
+    color:#fff;
+    text-align:left;
+    cursor:pointer
+}
+.connection-button.active,.connection-button:hover{
+    background:#1f2937
+}
+.login-button{
+    padding:12px;
+    border:none;
+    border-radius:8px;
+    background:#999999;
+    color:#fff;
+    text-align:left;
+    cursor:pointer
+}
+.login-button.active,.login-button:hover{
+    background:#1f2937
+}
+#page-content{
+    grid-area:content;
+    padding:20px;
+    overflow:hidden
+}
+.workspace-header{
+    margin-bottom:15px
+}
+.workspace-body{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+    height:calc(100% - 60px)
+}
+.chat-panel,.result-panel{
+    overflow:auto
+}
+.message,.result-card{
+    background:#1f2937;
+    border-radius:10px;
+    padding:15px;
+    margin-bottom:15px
+}
+.footer{
+    grid-area:footer;
+    background:#111827;
+    border-top:1px solid #2b3548;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 20px
+}
+.chat-input{
+    flex:1;
+    height:45px;
+    background:#1f2937;
+    border:none;
+    border-radius:8px;
+    color:#fff;
+    padding:0 15px
+}
+.footer button{
+    height:45px;
+    padding:0 20px;
+    background:#2563eb;
+    border:none;
+    border-radius:8px;
+    color:#fff;
+    cursor:pointer
+}
+/* ===========================
+   Modal Overlay
+=========================== */
+
+.modal {
+    display: none;              /* JS จะเปลี่ยนเป็น flex */
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+
+/* ===========================
+   Modal Box
+=========================== */
+
+.modal-content {
+    width: 520px;
+    max-width: 90%;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,.25);
+}
+
+
+/* ===========================
+   Header
+=========================== */
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px 24px;
+
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.modal-header h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.close-btn {
+    border: none;
+    background: transparent;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.close-btn:hover {
+    color: #000;
+}
+
+
+/* ===========================
+   Body
+=========================== */
+
+.modal-body {
+    padding: 24px;
+}
+
+
+/* ===========================
+   Footer
+=========================== */
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+
+    padding: 18px 24px;
+
+    border-top: 1px solid #e5e7eb;
+}
+
+
+/* =========================
+   Connect Database Modal
+========================= */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(15, 23, 42, 0.45);
+    backdrop-filter: blur(6px);
+}
+.modal-content {
+
+    width: 550px;
+    max-width: 90%;
+
+    background: #ffffff;
+
+    border-radius: 16px;
+
+    box-shadow:
+        0 25px 50px rgba(0,0,0,.18);
+
+    overflow: hidden;
+
+    animation: popup .25s ease;
+}
+
+@keyframes popup {
+
+    from{
+        transform: translateY(20px) scale(.95);
+        opacity:0;
+    }
+
+    to{
+        transform: translateY(0) scale(1);
+        opacity:1;
+    }
+
+}
+.modal-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:20px 28px;
+
+    background:#2563eb;
+    color:white;
+}
+
+.modal-header h2{
+
+    margin:0;
+    font-size:22px;
+    font-weight:600;
+
+}
+.close-btn{
+
+    width:36px;
+    height:36px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:transparent;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:24px;
+
+    transition:.2s;
+
+}
+
+.close-btn:hover{
+
+    background:rgba(255,255,255,.15);
+
+}
+.modal-body{
+
+    padding:28px;
+
+}
+.form-group{
+
+    display:flex;
+    flex-direction:column;
+
+    margin-bottom:18px;
+
+}
+
+.form-group label{
+
+    margin-bottom:8px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:#475569;
+
+}
+.form-group input,
+.form-group select{
+
+    padding:12px 14px;
+
+    border:1px solid #dbe2ea;
+
+    border-radius:10px;
+
+    font-size:15px;
+
+    transition:.2s;
+
+    outline:none;
+
+}
+
+.form-group input:focus,
+.form-group select:focus{
+
+    border-color:#2563eb;
+
+    box-shadow:0 0 0 3px rgba(37,99,235,.15);
+
+}
+.modal-footer{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:12px;
+
+    padding:20px 28px;
+
+    background:#f8fafc;
+
+    border-top:1px solid #edf2f7;
+
+}
+.btn{
+
+    padding:11px 22px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.2s;
+
+}
+.btn.primary{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.btn.primary:hover{
+
+    background:#1d4ed8;
+
+}
+.btn.secondary{
+
+    background:#e2e8f0;
+
+    color:#334155;
+
+}
+
+.btn.secondary:hover{
+
+    background:#cbd5e1;
+
+}
+.modal-content:hover {
+    box-shadow: 0 30px 70px rgba(0,0,0,.22);
+}
+/* =========================
+   Login Modal
+========================= */
+.btnLogin{
+
+    padding:11px 22px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.2s;
+
+}
+.btnLogin.primary{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+.btnLogin.primary:hover{
+
+    background:#1d4ed8;
+
+}

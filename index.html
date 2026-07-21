@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DB Copilot</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">🤖 DB Copilot</div>
+            <div class="header-right">
+                🟢 Connected | HR_DEV
+                <button id="btnLoginOpen" class="login-button">Login</button>
+            </div>
+        </header>
+        <aside class="sidebar">
+            <div class="connection-card">
+                <h3>Connection</h3>
+                <div class="connection-item"><label>Server</label><span>SQL Server</span></div>
+                <div class="connection-item"><label>Database</label><span>HR_DEV</span></div>
+                <div class="connection-item"><label>IP</label><span>10.10.10.25</span></div>
+                <div class="connection-item"><label>User</label><span>sa</span></div>
+                <button id="btnConnect" class="connection-button">🔗 Connect Database</button>
+            </div>
+            <nav class="menu">
+                <button class="menu-item active" id="btnDesign">🗄 Database Design</button>
+                <button class="menu-item" id="btnAssistant">💬 SQL Assistant</button>
+                <button class="menu-item" id="btnHistory">🕘 History</button>
+            </nav>
+        </aside>
+        <main id="page-content">
+            <section id="page-design">
+                <div class="workspace-header">
+                    <h2>Database Design</h2>
+                </div>
+                <div class="workspace-body">
+                    <section class="chat-panel">
+                        <div class="message ai">
+                            <strong>DB Copilot</strong>
+                            <p>Hello 👋</p>
+                        </div>
+                    </section>
+                    <aside class="result-panel">
+                        <div class="result-card">
+                            <h3>Agent Workflow</h3>
+                            <ul>
+                            <li>✔ Analyze</li>
+                            <li>✔ Detect Entity</li>
+                            <li>⏳ Generate SQL</li>
+                            </ul>
+                        </div>
+                        <div class="result-card">
+                            <h3>SQL Preview</h3>
+                            <pre>
+                                CREATE TABLE Employee(...);
+                            </pre>
+                        </div>
+                    </aside>
+                </div>
+            </section>
+            <section id="page-assistant" style="display:none;">
+                <h2>SQL Assistant</h2>
+            </section>
+            <section id="page-history" style="display:none;">
+                <h2>History</h2>
+            </section>
+        </main>
+        <footer class="footer">
+            <input class="chat-input" placeholder="Describe your database...">
+            <button>Generate</button>
+        </footer>
+    </div>
+<!-- Connect Database Modal -->
+<div id="connectModal" class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>🔗 Connect Database</h2>
+
+            <button id="closeModal" class="close-btn">
+                &times;
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div class="form-group">
+                <label>Database Type</label>
+                <select>
+                    <option>SQL Server</option>
+                    <option>Oracle</option>
+                    <option>MySQL</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Server</label>
+                <input type="text" placeholder="localhost">
+            </div>
+
+            <div class="form-group">
+                <label>Database</label>
+                <input type="text" placeholder="Database name..">
+            </div>
+
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" placeholder="User name...">
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" placeholder="********">
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button class="btn secondary">
+                Test Connection
+            </button>
+
+            <button id="btnCancel" class="btn secondary" id="closeModal">
+                Cancel
+            </button>
+
+            <button class="btn primary">
+                Connect
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+<!-- login Modal -->
+<div id="LoginModal" class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>Login</h2>
+
+            <button id="closeLoginModal" class="close-btn">
+                &times;
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" placeholder="User name..." id="username">
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" placeholder="********" id="password">
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button id="btnCancelLogin" class="btn secondary" id="closeLoginModal">
+                Cancel
+            </button>
+
+            <button class="btnLogin primary" id="btnLogin">
+                Login
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>
