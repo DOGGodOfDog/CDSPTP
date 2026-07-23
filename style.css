@@ -455,3 +455,71 @@ body{
     background:#1d4ed8;
 
 }
+/* =========================
+   Status Login
+========================= */
+.status-dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    display:inline-block;
+    justify-content: space-between;
+}
+
+.status-dot.online{
+    background:#27ae60;
+}
+
+.status-dot.offline{
+    background:#e74c3c;
+}
+/* =========================
+   status connecttion db
+========================= */
+.dot-status{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    display:inline-block;
+    justify-content: space-between;
+}
+
+.dot-status.online{
+    background:#27ae60;
+}
+
+.dot-status.offline{
+    background:#e74c3c;
+}
+/* =========================
+   Login Dropdown
+========================= */
+.user-menu{
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-menu{
+    position: absolute;
+    top:45px;
+    right:0;
+    background:#fff;
+    border:1px solid #ddd;
+    border-radius:8px;
+    min-width:140px;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+    overflow:hidden;
+}
+
+.dropdown-menu button{
+    width:100%;
+    border:none;
+    background:white;
+    padding:10px;
+    cursor:pointer;
+    text-align:left;
+}
+
+.dropdown-menu button:hover{
+    background:#f5f5f5;
+}
