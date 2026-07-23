@@ -11,13 +11,28 @@
         <header class="header">
             <div class="logo">🤖 DB Copilot</div>
             <div class="header-right">
-                🟢 Connected | HR_DEV
-                <button id="btnLoginOpen" class="login-button">Login</button>
+                <div class="login-status">
+                    <div class="user-menu">
+                        <button id="btnUserMenu" class="login-button">
+
+                            <span id="loginStatus">🔴</span>
+                            <span id="currentUser">Guest</span>▼
+                        </button>
+                        <div id="dropdownMenu" class="dropdown-menu" style="display:none;">
+                            <button id="btnMenuAction">
+                                Login
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </header>
         <aside class="sidebar">
             <div class="connection-card">
-                <h3>Connection</h3>
+                <div class="connection-status">
+                    <span id="statusDot">🔴</span>
+                    <span id="statusText">Disconnected</span>
+                </div>
                 <div class="connection-item"><label>Server</label><span>SQL Server</span></div>
                 <div class="connection-item"><label>Database</label><span>HR_DEV</span></div>
                 <div class="connection-item"><label>IP</label><span>10.10.10.25</span></div>
@@ -61,7 +76,32 @@
                 </div>
             </section>
             <section id="page-assistant" style="display:none;">
-                <h2>SQL Assistant</h2>
+                <h2>Database Assistant</h2>
+                <br>
+                <div class="workspace-body">
+                    <section class="chat-panel">
+                        <div class="message ai">
+                            <strong>DB Copilot</strong>
+                            <p>Hello 👋</p>
+                        </div>
+                    </section>
+                    <aside class="result-panel">
+                        <div class="result-card">
+                            <h3>Agent Workflow</h3>
+                            <ul>
+                            <li>✔ Analyze</li>
+                            <li>✔ Detect Entity</li>
+                            <li>⏳ Generate SQL</li>
+                            </ul>
+                        </div>
+                        <div class="result-card">
+                            <h3>SQL Preview</h3>
+                            <pre>
+                                CREATE TABLE Employee(...);
+                            </pre>
+                        </div>
+                    </aside>
+                </div>
             </section>
             <section id="page-history" style="display:none;">
                 <h2>History</h2>
@@ -91,7 +131,7 @@
 
             <div class="form-group">
                 <label>Database Type</label>
-                <select>
+                <select id="dbType">
                     <option>SQL Server</option>
                     <option>Oracle</option>
                     <option>MySQL</option>
@@ -100,22 +140,22 @@
 
             <div class="form-group">
                 <label>Server</label>
-                <input type="text" placeholder="localhost">
+                <input type="text" placeholder="localhost" id="server">
             </div>
 
             <div class="form-group">
                 <label>Database</label>
-                <input type="text" placeholder="Database name..">
+                <input type="text" placeholder="Database name.." id="database">
             </div>
 
             <div class="form-group">
                 <label>Username</label>
-                <input type="text" placeholder="User name...">
+                <input type="text" placeholder="User name..." id="dbUsername">
             </div>
 
             <div class="form-group">
                 <label>Password</label>
-                <input type="password" placeholder="********">
+                <input type="password" placeholder="********" id="dbPassword">
             </div>
 
         </div>
@@ -130,7 +170,7 @@
                 Cancel
             </button>
 
-            <button class="btn primary">
+            <button class="btn primary" id="btnConnectDatabase">
                 Connect
             </button>
 
