@@ -14,9 +14,7 @@
                 <div class="login-status">
                     <div class="user-menu">
                         <button id="btnUserMenu" class="login-button">
-
-                            <span id="loginStatus">🔴</span>
-                            <span id="currentUser">Guest</span>▼
+                            <span id="loginStatus">🔴</span><span id="currentUser">Guest</span>&nbsp;&nbsp;▼
                         </button>
                         <div id="dropdownMenu" class="dropdown-menu" style="display:none;">
                             <button id="btnMenuAction">
@@ -46,70 +44,47 @@
             </nav>
         </aside>
         <main id="page-content">
-            <section id="page-design">
+            <section id="page-design" class="page-section">
                 <div class="workspace-header">
                     <h2>Database Design</h2>
                 </div>
-                <div class="workspace-body">
-                    <section class="chat-panel">
-                        <div class="message ai">
-                            <strong>DB Copilot</strong>
-                            <p>Hello 👋</p>
+                <div class="workspace-body chat-layout">
+                    <section class="chat-panel" id="chatPanelDesign">
+                        <div class="chat-content">
+                            <div class="message ai">
+                                <strong>DB Copilot</strong>
+                                <p>Hello 👋</p>
+                            </div>
                         </div>
                     </section>
-                    <aside class="result-panel">
-                        <div class="result-card">
-                            <h3>Agent Workflow</h3>
-                            <ul>
-                            <li>✔ Analyze</li>
-                            <li>✔ Detect Entity</li>
-                            <li>⏳ Generate SQL</li>
-                            </ul>
-                        </div>
-                        <div class="result-card">
-                            <h3>SQL Preview</h3>
-                            <pre>
-                                CREATE TABLE Employee(...);
-                            </pre>
-                        </div>
-                    </aside>
                 </div>
             </section>
-            <section id="page-assistant" style="display:none;">
+            <section id="page-assistant" class="page-section" style="display:none;">
                 <h2>Database Assistant</h2>
                 <br>
-                <div class="workspace-body">
-                    <section class="chat-panel">
-                        <div class="message ai">
-                            <strong>DB Copilot</strong>
-                            <p>Hello 👋</p>
+                <div class="workspace-body chat-layout">
+                    <section class="chat-panel" id="chatPanelAssistant">
+                        <div class="chat-content">
+                            <div class="message ai">
+                                <strong>DB Copilot</strong>
+                                <p>Hello 👋</p>
+                            </div>
                         </div>
                     </section>
-                    <aside class="result-panel">
-                        <div class="result-card">
-                            <h3>Agent Workflow</h3>
-                            <ul>
-                            <li>✔ Analyze</li>
-                            <li>✔ Detect Entity</li>
-                            <li>⏳ Generate SQL</li>
-                            </ul>
-                        </div>
-                        <div class="result-card">
-                            <h3>SQL Preview</h3>
-                            <pre>
-                                CREATE TABLE Employee(...);
-                            </pre>
-                        </div>
-                    </aside>
                 </div>
             </section>
             <section id="page-history" style="display:none;">
                 <h2>History</h2>
+
+                <div id="historyList" class="history-list">
+                    <p class="empty-hint">ยังไม่มีประวัติการสนทนา</p>
+                </div>
+
             </section>
         </main>
         <footer class="footer">
-            <input class="chat-input" placeholder="Describe your database...">
-            <button>Generate</button>
+            <input class="chat-input" placeholder="Describe your database..." id="chatInput">
+            <button id="btnGenerate">Generate</button>
         </footer>
     </div>
 <!-- Connect Database Modal -->
